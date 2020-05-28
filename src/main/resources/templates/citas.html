@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <title>Citas Medicas</title>
+    </head>
+    <body>
+      <div class="container">
+        <div>
+          <h3>Citas Medicas</h3>
+        </div>
+        <table class="table" id="citasTabla">
+          <thead class="text-center">
+            <tr>
+              <th>id</th>
+              <th>Doctor</th>
+              <th>Paciente</th>
+              <th>Fecha</th>
+              <th colspan="2">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+             <tr th:each="cita : ${citas}">
+                <td th:text="${cita.id}"></td>
+                <td th:text="${cita.nombreDoctor}"></td>
+                <td th:text="${cita.nombrePaciente}"></td>
+                <td th:text="${cita.fecha}"></td>
+                <td align="center"> <a href="" class="btn btn-secondary" align="center">Modificar</a> </td>
+                <td align="center"> <a href="/eliminarcita" modelAttribute="${cita.id}" name=id class="btn btn-danger" align="center">Eliminar</a> </td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <a href="/agregarcita" class="btn btn-success">Crear Cita</a>
+        </div>
+      </div>
+    </body>
+</html>
