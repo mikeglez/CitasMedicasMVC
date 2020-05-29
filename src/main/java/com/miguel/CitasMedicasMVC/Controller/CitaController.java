@@ -49,7 +49,7 @@ public class CitaController {
         return "redirect:citas";
     }
     
-    @GetMapping("/eliminarcita")
+    @PostMapping("/eliminarcita")
     public String eliminarCita(@ModelAttribute("id") Integer id){
         service.deleteCitaById(id);
         return "redirect:citas"; 
