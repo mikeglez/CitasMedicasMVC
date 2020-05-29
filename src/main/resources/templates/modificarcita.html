@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Modificar Cita</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="">
+        <h3>Modificar Cita</h3>
+      </div>
+      <div class="">
+        <form modelAttribute="cita" method="post" action="http://localhost:8080/modificarcita" >
+          <div class="from-group">
+            <label for="doctor-name-input">Doctor</label>
+            <input class="form-control" type="text" name="nombreDoctor" id="doctor-name-input" th:value="${cita.nombreDoctor}">
+          </div>
+          <div class="form-group">
+            <label for="patient-name-input">Paciente</label>
+            <input class="form-control" type="text" name="nombrePaciente" id="patient-name-input" th:value="${cita.nombrePaciente}">
+          </div>
+          <input type="hidden" name="id" th:value="${cita.id}">
+          <input type="submit" name="botonCrear" value="Modificar" class="btn btn-success">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

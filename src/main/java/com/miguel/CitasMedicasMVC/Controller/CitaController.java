@@ -54,4 +54,17 @@ public class CitaController {
         service.deleteCitaById(id);
         return "redirect:citas"; 
     }
+    
+    @PostMapping("/buscarcita")
+    public String buscarCita(Model model, @ModelAttribute("id") Integer id){
+        Cita cita = service.findCitaById(id);
+        model.addAttribute("cita", cita);
+        return "modificarcita";
+    }
+    
+    @PostMapping("/modificarcita")
+    public String modificarCita(@ModelAttribute("cita") Cita cita){
+        service.updateCitaById(cita.getId(), cita);
+        return "redirect:citas";
+    }
 }

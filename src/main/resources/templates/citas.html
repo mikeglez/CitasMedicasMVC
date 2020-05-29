@@ -31,7 +31,11 @@ and open the template in the editor.
                 <td th:text="${cita.nombreDoctor}"></td>
                 <td th:text="${cita.nombrePaciente}"></td>
                 <td th:text="${cita.fecha}"></td>
-                <td align="center"> <a href="" class="btn btn-secondary" align="center">Modificar</a> </td>
+                <td align="center">
+                  <form modelAttribute="id" action="http://localhost:8080/buscarcita" method="post">
+                    <input type="hidden" name="id" th:value="${cita.id}">
+                    <input type="submit" name="botonModificar" value="Modificar" class="btn btn-secondary" >
+                  </form>
                 <td align="center">
                   <form modelAttribute="id" method="post"  action="http://localhost:8080/eliminarcita">
                     <input type="hidden" name="id" th:value="${cita.id}">
